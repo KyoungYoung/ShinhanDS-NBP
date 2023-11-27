@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jpabook.jpashop.MemberRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-11-27T06:32:38" hostname="DESKTOP-34OTVGC" time="0.137">
+  <properties/>
+  <testcase name="testMember" classname="jpabook.jpashop.MemberRepositoryTest" time="0.137"/>
+  <system-out><![CDATA[2023-11-27T15:32:38.998+09:00 DEBUG 3400 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        next value for member_seq
+2023-11-27T15:32:39.001+09:00  INFO 3400 --- [    Test worker] p6spy                                    : #1701066759001 | took 0ms | statement | connection 4| url jdbc:h2:tcp://localhost/~/jpashop
+select next value for member_seq
+select next value for member_seq;
+true
+2023-11-27T15:32:39.068+09:00 DEBUG 3400 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (username,id) 
+    values
+        (?,?)
+2023-11-27T15:32:39.070+09:00  INFO 3400 --- [    Test worker] p6spy                                    : #1701066759070 | took 0ms | statement | connection 4| url jdbc:h2:tcp://localhost/~/jpashop
+insert into member (username,id) values (?,?)
+insert into member (username,id) values ('memberA',1);
+2023-11-27T15:32:39.072+09:00  INFO 3400 --- [    Test worker] p6spy                                    : #1701066759072 | took 0ms | commit | connection 4| url jdbc:h2:tcp://localhost/~/jpashop
+
+;
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

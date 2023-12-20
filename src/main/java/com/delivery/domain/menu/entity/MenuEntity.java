@@ -28,6 +28,7 @@ public class MenuEntity {
     @Column
     private String price;
 
+
     @NotNull
     @Column
     private String content;

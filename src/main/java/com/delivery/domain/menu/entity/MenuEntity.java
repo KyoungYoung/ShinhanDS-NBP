@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
 @Table(name = "menu")
 @Entity
 @AllArgsConstructor
@@ -17,6 +18,11 @@ public class MenuEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @Column
+    private String name;
+
 
     @NotNull
     @Column

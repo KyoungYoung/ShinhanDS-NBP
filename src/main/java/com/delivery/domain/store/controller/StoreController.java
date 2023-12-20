@@ -3,75 +3,73 @@ package com.delivery.domain.store.controller;
 import com.delivery.domain.store.dto.StoreDto;
 import com.delivery.domain.store.entity.StoreEntity;
 import com.delivery.domain.store.repository.StoreRepository;
-import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/owner2")
+@RequestMapping("/store")
 @Slf4j
 @RequiredArgsConstructor
 public class StoreController {
 
-    private final StoreRepository ownerRepository;
 
-    //조회페이지
+    private final StoreRepository storeRepository;
+
     @GetMapping("/new")
-    public String allStore(){
-        return "html/owner2/ownerStore";}
+    public String newStoreForm(){return "html/store/StoreAdd";}
 
-    //등록페이지
     @PostMapping("/create")
+
     public String create(@ModelAttribute StoreDto form){
+        System.out.println(form);
 
-        StoreEntity owner = form.toEntity();
-        StoreEntity saved =ownerRepository.save(owner);
+        log.info("ERR : " + form.toString());
+        StoreEntity store = form.toEntity();
+        log.info("ERR : " + store.toString());
+        StoreEntity saved = storeRepository.save(store);
+        log.info("ERR : "+saved.toString());
 
-        return "redirect:/owner2/" + saved;
+
+        return "redirect:/store/"+saved.getId();
     }
 
+    @GetMapping("/{id}")
+    public String show(@PathVariable Long id, Model model){
+
+        Optional<StoreEntity> storeEntity = storeRepository.findById(id);
+
+        if(storeEntity.isPresent()){
+            model.addAttribute("store", storeEntity.get());
+        }
+        return "html/store/StoreShow";
+    }
+
+    //목록보기
     @GetMapping("")
     public String list(Model model){
 
-        List<StoreEntity> ownerEntityList = ownerRepository.findAll();
-
-
-        model.addAttribute("ownerList", ownerEntityList);
-        return "html/owner2/ownerStoreList";
+        List<StoreEntity> storeEntityList = storeRepository.findAll();
+        model.addAttribute("store", storeEntityList);
+        return "html/store/StoreShow";
     }
 
-    //수정페이지
-    @GetMapping("/edit/{title}")
-    public String editStoreForm(@ModelAttribute String title, Model model){
+    @GetMapping ("/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes rttr){
 
-        Optional<StoreEntity> ownerEntity = ownerRepository.findById(title);
-
-        if(ownerEntity.isPresent()){
-            model.addAttribute("owner", ownerEntity.get());
-        }
-
-        return "html/owner2/ownerStoreRe";}
-
-    @PostMapping("/edit/{title}/put")
-    @NotNull
-    public String edit(@ModelAttribute StoreDto form){
-
-        StoreEntity owner = form.toEntity();
-        log.info(form.toString());
-
-        Optional<StoreEntity> target = ownerRepository.findById(owner.getTitle());
+        Optional<StoreEntity> target = storeRepository.findById(id);
 
         if(target.isPresent()){
-            ownerRepository.save(owner);
+            storeRepository.delete(target.get());
+            rttr.addFlashAttribute("msg", "게시물삭제");
         }
-
-        return "redirect:/owner2/" + owner.getTitle();
+        return "redirect:/store/new";
     }
 
 }

@@ -24,19 +24,18 @@ p{
     font-family: 'Noto Sans KR', sans-serif;
 }
 .mainpage {
-    flex-basis: 80%;
-    border: 1px solid darkgreen;
+    flex-basis: 100%;
     padding: 1rem;
 
 }
-.store_title{
+.menu_title{
     border-bottom: 1px solid black;
     width: 1000px;
     margin-left: 20px;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
 }
-.store_sub{
+.menu_sub{
     background-color: orange;
     width: 1000px;
     height: 30px;
@@ -44,7 +43,7 @@ p{
     border-radius: 10px;
     font-family: 'Noto Sans KR', sans-serif;
 }
-#btn_store{
+#btn_menu{
     width: 100px;
     height: 30px;
     font-size: large;
@@ -53,7 +52,7 @@ p{
     margin-left: 50px;
 
 }
-.store1{
+.menu1{
     /* border: 1px solid black; */
     margin-left: 20px;
     border-radius: 10px;
@@ -64,26 +63,26 @@ p{
 .image h2{
     text-align:left;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
 }
-#store1_name{
+#menu1_name{
     background-color: oldlace;
     width: 250px;
-    height: 30px;
+    height: 25px;
     margin-left: 10px;
-    font-size: 25px;
+    font-size: large;
 }
-#store1_contect{
+#menu1_price{
     background-color: oldlace;
     width: 250px;
-    height: 30px;
+    height: 25px;
     margin-left: 10px;
-    font-size: 25px;
+    font-size: large;
 }
-#store1_context{
+#menu1_context{
     background-color: oldlace;
     margin-left: 10px;
-    font-size: 25px;
+    font-size: large;
 }
 .image{
     /* border: 1px solid black;
@@ -94,30 +93,13 @@ p{
     font-family: 'Noto Sans KR', sans-serif;
     /* font-size: 30px; */
 }
-#btn_addmenu{
-    width: 300px;
-    height: 40px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: large;
-    background-color: orange;
-    border-radius: 10px;
-}
-#store1_addr{
-    background-color: oldlace;
-    width: 250px;
-    height: 30px;
-    margin-left: 10px;
-    font-size: 25px;
-}
 h5 {
     font-weight: 700;
     color: #fff;
     margin: 20px 0;
-    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 20px;
 }
-
 ul li {
     margin-bottom: 10px;
     list-style: none;
@@ -127,7 +109,7 @@ ul li a {
     color: rgba(255, 255, 255, 0.4);
     text-decoration: none;
     transition: 0.3s;
-    font-family: 'Nanum Pen Script', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 20px;
 }
 
@@ -135,7 +117,7 @@ ul li a:hover {
     color: white;
 }
 #btn_submit, #btn_cancel{
-    width: 500px;
+    width: 490px;
     height: 40px;
     font-size: large;
     background-color: orange;

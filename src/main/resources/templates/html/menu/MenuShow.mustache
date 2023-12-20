@@ -149,6 +149,7 @@
     </style>
 </head>
 <body>
+<form>
 <main class="container">
     <aside class="sidebar">
         <p>사장님 페이지</p>
@@ -176,9 +177,23 @@
             <li><a href="#">자주 묻는 질문</a></li>
         </ul>
     </aside>
+    <section class="mainpage" style="overflow-y: scroll;">
+        <fieldset>
+            <div>
+                <br>
+                <p><img src="/static/img/check.png" width="20px">   메뉴</p></div><br>
+            <div class="menu_title">
+                메뉴 상세보기 페이지 입니다.
+            </div><br>
+            <div class="menu_sub">
+                <button id="btn_menu">메뉴조회</button>
+                <button id="btn_menu">메뉴등록</button>
+                <button id="btn_menu">메뉴수정</button>
+            </div><br>
     <table class="table">
         <thead>
         <tr>
+            <th scope="col">번호</th>
             <th scope="col">이름</th>
             <th scope="col">가격</th>
             <th scope="col">설명</th>
@@ -190,6 +205,7 @@
         {{#menu}}
             <tr>
                 <th>{{id}}</th>
+                <th>{{name}}</th>
                 <td>{{price}}</td>
                 <td>{{content}}</td>
                 <td>{{popular}}</td>
@@ -202,19 +218,9 @@
     <a href="/menu/{{id}}/edit" class="btn btn-primary">수정하기</a>
     <a href="/menu/{{id}}/delete" class="btn btn-danger">삭제하기</a>
     <a href="/menu" class="btn btn-primary">목록가기</a>
+        </fieldset>
+    </section>
 </main>
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('preview').src = e.target.result;
-            };
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            document.getElementById('preview').src = "";
-        }
-    }
-</script>
+</form>
 </body>
 </html>

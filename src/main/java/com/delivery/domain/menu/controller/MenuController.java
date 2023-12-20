@@ -25,17 +25,17 @@ public class MenuController {
     private final MenuRepository menuRepository;
 
     @GetMapping("/new")
-    public String newArticleForm(){return "html/menu/MenuAdd";}
+    public String newMenuForm(){return "html/menu/MenuAdd";}
 
     @PostMapping("/create")
     public String create(@ModelAttribute MenuDto form){
 
         MenuEntity menu = form.toEntity();
-        log.info(menu.toString());
+        log.info("dto: " + menu.toString());
 
         MenuEntity saved = menuRepository.save(menu);
 
-        log.info(saved.toString());
+        log.info("entity: "+ saved.toString());
         return "redirect:/menu/" + saved.getId();
     }
 

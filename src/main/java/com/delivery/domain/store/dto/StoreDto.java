@@ -6,20 +6,24 @@ import lombok.ToString;
 
 import java.sql.Time;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @ToString
 public class StoreDto {
 
-    private String title;
-    private String tel;
-    private Time opentime;
-    private Time endtime;
-    private Date restdate;
-    private String addr;
+    private Long id;
+    private String name;
+    private String phone;
+    private String address;
+    private String open_time;
+    private String close_time;
+    private String rest_day;
     private String content;
+    private String photo;
 
     public StoreEntity toEntity(){
-        return new StoreEntity(title, tel, opentime, endtime, restdate, addr, content);
+        return new StoreEntity(id, name, phone, address, open_time, close_time, rest_day, content, photo);
     }
 }

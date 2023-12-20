@@ -2,15 +2,20 @@ package com.delivery.domain.store.entity;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.cglib.core.Local;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-@Entity(name="owner_entity")
+@Table(name="store")
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -18,24 +23,30 @@ import java.sql.Time;
 public class StoreEntity {
 
     @Id
-    @Column
-    private String title;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column
-    private String tel;
+    private String name;
 
     @Column
-    private Time opentime;
+    private String phone;
 
     @Column
-    private Time endtime;
+    private String address;
 
     @Column
-    private Date restdate;
+    private String open_time;
 
     @Column
-    private String addr;
+    private String close_time;
+
+    @Column
+    private String rest_day;
 
     @Column
     private String content;
+
+    @Column
+    private String photo;
 }

@@ -11,12 +11,13 @@ import org.springframework.orm.jpa.JpaOptimisticLockingFailureException;
 public class MenuDto {
 
     private Long id;
+    private String name;
     private String price;
     private String content;
     private String popular;
     private String photo;
 
     public MenuEntity toEntity(){
-        return new MenuEntity(id, price, content, popular, photo);
+        return new MenuEntity(id, name, price, content, popular, photo);
     }
 }

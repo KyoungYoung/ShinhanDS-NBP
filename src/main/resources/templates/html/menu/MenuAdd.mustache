@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add</title>
+    <link rel="stylesheet" href="/templates/css/menu/MenuAdd.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <style>
         * {
@@ -32,8 +33,7 @@
             font-family: 'Noto Sans KR', sans-serif;
         }
         .mainpage {
-            flex-basis: 80%;
-            border: 1px solid darkgreen;
+            width: 80%;
             padding: 1rem;
 
         }
@@ -42,7 +42,7 @@
             width: 1000px;
             margin-left: 20px;
             font-family: 'Noto Sans KR', sans-serif;
-            font-size: 30px;
+            font-size: 20px;
         }
         .menu_sub{
             background-color: orange;
@@ -72,7 +72,7 @@
         .image h2{
             text-align:left;
             font-family: 'Noto Sans KR', sans-serif;
-            font-size: 30px;
+            font-size: 20px;
         }
         #menu1_name{
             background-color: oldlace;
@@ -102,23 +102,13 @@
             font-family: 'Noto Sans KR', sans-serif;
             /* font-size: 30px; */
         }
-        #btn_addmenu{
-            width: 300px;
-            height: 40px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: large;
-            background-color: orange;
-            border-radius: 10px;
-        }
         h5 {
             font-weight: 700;
-            color: #fff;
+            color: black;
             margin: 20px 0;
             font-family: 'Noto Sans KR', sans-serif;
             font-size: 20px;
         }
-
         ul li {
             margin-bottom: 10px;
             list-style: none;
@@ -136,7 +126,7 @@
             color: white;
         }
         #btn_submit, #btn_cancel{
-            width: 500px;
+            width: 490px;
             height: 40px;
             font-size: large;
             background-color: orange;
@@ -148,7 +138,7 @@
     </style>
 </head>
 <body>
-<form action="/menu/create" class="container" method="post">
+<form action="/menu/create" method="post"  >
 <main class="container">
     <aside class="sidebar">
         <p>사장님 페이지</p>
@@ -176,11 +166,11 @@
             <li><a href="#">자주 묻는 질문</a></li>
         </ul>
     </aside>
-    <section class="mainpage" style="overflow-y: scroll;">
+    <section >
         <fieldset>
             <div>
                 <br>
-                <p><img src="img/check.png" width="20px">   메뉴</p></div><br>
+                <p><img src="/static/img/check.png" width="20px">   메뉴</p></div><br>
             <div class="menu_title">
                 메뉴를 등록하는 페이지 입니다.
             </div><br>
@@ -190,13 +180,13 @@
                 <button id="btn_menu">메뉴수정</button>
             </div><br>
             <div class="menu1">
-                <h3> > 메뉴명</h3>
+                <h5> > 메뉴명</h5>
                 <input type="text" id="menu1_name" name="name" placeholder=" 생굴샐러드"><br><br>
-                <h3> > 메뉴가격</h3>
+                <h5> > 메뉴가격</h5>
                 <input type="text" id="menu1_price" name="price" placeholder=" 13000원"><br><br>
-                <h3> > 메뉴점수</h3>
+                <h5> > 메뉴점수</h5>
                 <input type="text" id="menu1_price" name="popular" ><br><br>
-                <h3> > 메뉴 설명</h3><br>
+                <h5> > 메뉴 설명</h5><br>
                 <textarea name="content" cols="100" rows="13" id="menu1_context"> 통영 산지에서 매일 공수한 바다의 우유 생굴이 가득한 생굴 샐러드!!</textarea><br><br>
             </div><br><br>
             <div class="image"><br>
@@ -207,9 +197,9 @@
                 <!-- <button id="btn_addmenu">메뉴 추가하기</button><br><br> -->
             </div><br><br><br>
             <div>
-                <div class="finish_space"><br>
+                <div class="finish_space">
                     <button type="submit" id="btn_submit" value="등록">등록</button>
-                    <button><a href="/menu" id="btn_cancel" value="취소">취소</a></button>
+                    <button  id="btn_cancel" ><a href="/menu" value="취소">취소</a></button>
                 </div>
             </div>
         </fieldset>

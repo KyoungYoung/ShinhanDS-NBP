@@ -10,9 +10,9 @@ import java.sql.Date;
 @AllArgsConstructor
 @ToString
 public class StoreDto {
-
+    private  Long storeId;
     private String title;
-    private String tel;
+    private int tel;
     private Time opentime;
     private Time endtime;
     private Date restdate;
@@ -20,6 +20,6 @@ public class StoreDto {
     private String content;
 
     public StoreEntity toEntity(){
-        return new StoreEntity(title, tel, opentime, endtime, restdate, addr, content);
+        return new StoreEntity(storeId, title, tel, opentime, endtime, restdate, addr, content);
     }
 }

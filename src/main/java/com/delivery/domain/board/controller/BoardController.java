@@ -100,6 +100,8 @@ public class BoardController {
         // 7 8 9
         // 보여지는 페이지 갯수 3개
         // 총 페이지 갯수 8개
+        List<BoardDTO> boardDTOList = boardService.findAll();
+        model.addAttribute("boardDTOList", boardDTOList);
 
         model.addAttribute("boardList", boardList);
         model.addAttribute("startPage", startPage);

@@ -18,11 +18,14 @@ import java.sql.Time;
 public class StoreEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
+    private Long id;
+
     @Column
     private String title;
 
     @Column
-    private String tel;
+    private int tel;
 
     @Column
     private Time opentime;

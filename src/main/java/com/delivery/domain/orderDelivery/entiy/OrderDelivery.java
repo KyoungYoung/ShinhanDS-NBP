@@ -28,9 +28,9 @@ public class OrderDelivery {
     private MemberEntity memberEntity; //회원 아이디
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "store_name")
-    private StoreEntity storeEntity; //식당 아이디
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "store_name")
+//    private StoreEntity storeEntity; //식당 아이디
 
 
     @Column(nullable = false, length = 20)

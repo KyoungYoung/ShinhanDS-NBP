@@ -26,7 +26,6 @@ public class OrderDeliveryDto {
     private String requestContent;
     private LocalDateTime deliveryTime = requestTime.plusMinutes(30);
 
-
     public static OrderDeliveryDto toDto(OrderDelivery orderDelivery){
         return new OrderDeliveryDto(
                 orderDelivery.getId(),
@@ -38,5 +37,5 @@ public class OrderDeliveryDto {
         );
     }
 
-
 }
+

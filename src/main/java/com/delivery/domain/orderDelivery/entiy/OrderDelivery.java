@@ -1,7 +1,5 @@
 package com.delivery.domain.orderDelivery.entiy;
 
-
-
 import com.delivery.domain.member.entity.MemberEntity;
 import com.delivery.domain.orderDelivery.dto.OrderDeliveryDto;
 import com.delivery.domain.store.entity.StoreEntity;
@@ -58,14 +56,12 @@ public class OrderDelivery {
 
 
 
-
-
     //==엔티티 변환==//
-    public static OrderDelivery toEntity(OrderDeliveryDto orderDeliveryDto, MemberEntity memberEntity, StoreEntity storeEntity){
+    public static OrderDelivery toEntity(OrderDeliveryDto orderDeliveryDto, MemberEntity memberEntity){
         return new OrderDelivery(
                 orderDeliveryDto.getId(),
                 memberEntity,
-                storeEntity,
+
                 orderDeliveryDto.getStatus(),
                 orderDeliveryDto.getRequestTime(),
                 orderDeliveryDto.getAddress(),

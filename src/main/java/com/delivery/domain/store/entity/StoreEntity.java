@@ -1,29 +1,30 @@
 package com.delivery.domain.store.entity;
 
+import com.delivery.domain.member.entity.MemberEntity;
+import com.delivery.domain.menu.dto.MenuDto;
+import com.delivery.domain.menu.entity.MenuEntity;
+import com.delivery.domain.orderDelivery.dto.OrderDeliveryDto;
+import com.delivery.domain.orderDelivery.entiy.OrderDelivery;
+import com.delivery.domain.store.dto.StoreDto;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
-import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-import org.springframework.cglib.core.Local;
+import lombok.*;
 
-import java.sql.Date;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name="store")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Getter
+@Getter @Setter
 public class StoreEntity {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "store_id")
     private Long id;
 
     @Column
@@ -49,4 +50,26 @@ public class StoreEntity {
 
     @Column
     private String photo;
+
+    public static StoreEntity toEntity( StoreDto storeDto ) {
+        return new StoreEntity(
+                storeDto.getId(),
+                storeDto.getName(),
+                storeDto.getPhone(),
+                storeDto.getAddress(),
+                storeDto.getOpen_time(),
+                storeDto.getClose_time(),
+                storeDto.getRest_day(),
+                storeDto.getContent(),
+                storeDto.getPhoto()
+        );
+    }
+
+    public StoreEntity toCreate(StoreDto storeDto){
+        return new StoreEntity(id, name, phone, address, open_time, close_time, rest_day, content, photo);
+    }
+    public static StoreEntity toEntity(StoreDto storeDto, MenuEntity menuEntity) {
+
+        return new StoreEntity();
+    }
 }

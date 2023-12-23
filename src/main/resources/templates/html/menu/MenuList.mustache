@@ -110,6 +110,9 @@
         .finish_space{
             margin-left: 30px;
         }
+        .finish_space p{
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -170,7 +173,7 @@
                         <tr>
                             <td><a href="/menu/{{id}}">{{id}}</a></td>
                             <th>{{name}}</th>
-                            <td>{{price}}</td>
+                            <td>{{menu_price}}</td>
                             <th>{{popular}}</th>
                             <td>{{content}}</td>
                             <td>{{photo}}</td>
@@ -178,16 +181,9 @@
                     {{/menuList}}
                     </tbody>
                 </table><br><br>
-                <div class="image"><br>
-                    <h2> > 메뉴사진</h2><br>
-                    <div><input type="file" onchange="readURL(this);"><br>
-                        <img id="preview" width="300px" /><br><br><br></div>
-
-                    <!-- <button id="btn_addmenu">메뉴 추가하기</button><br><br> -->
-                </div><br><br><br>
                 <div>
                     <div class="finish_space">
-                        <button id="btn_submit"><a href="/menu/new">메뉴 추가</a></button>
+                        <p><button id="btn_submit"><a href="/menu/new">메뉴 추가</a></button></p>
                     </div>
                 </div>
             </fieldset>

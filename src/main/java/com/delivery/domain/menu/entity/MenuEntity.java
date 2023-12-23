@@ -1,54 +1,51 @@
 package com.delivery.domain.menu.entity;
 
+import com.delivery.domain.menu.dto.MenuDto;
+import com.delivery.domain.store.dto.StoreDto;
+import com.delivery.domain.store.entity.StoreEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
-@Table(name = "menu")
+
+@Table(name = "store_menu")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Getter
+@Getter @Setter
 public class MenuEntity {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "menuId")
     private Long id;
 
-    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id")
+    private StoreEntity store_id;
+
     @Column
     private String name;
-
-
-    @NotNull
     @Column
-    private String price;
-
-
-    @NotNull
+    private int menu_price;
     @Column
     private String content;
-
-    @NotNull
     @Column
     private String popular;
-
-    @NotNull
     @Column
     private String photo;
 
-    public void patch(MenuEntity menuEntity){
-        if(menuEntity.price !=null){
-            this.price = menuEntity.price;
-        }
-        if(menuEntity.content !=null){
-            this.content = menuEntity.content;
-        }
+
+
+    public MenuEntity toCreate(MenuDto menuDto){
+        return new MenuEntity(id, store_id, name, menu_price, content, popular, photo);
     }
+    public static MenuEntity toEntity(MenuDto menuDto, StoreEntity storeEntity) {
+
+        return new MenuEntity();
+    }
+
 }
 
 

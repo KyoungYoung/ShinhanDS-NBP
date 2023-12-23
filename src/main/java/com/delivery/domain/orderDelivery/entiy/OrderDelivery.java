@@ -19,7 +19,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class OrderDelivery {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_delivery_id")
     private Long id;
 
@@ -48,16 +49,12 @@ public class OrderDelivery {
     private LocalDateTime deliveryTime; // 배달 시간
 
     //==주문 상태 변경==//
-    public void cancel(Status status){
+    public void cancel(Status status) {
         this.status = status;
     }
 
 
-
-
-
-    //==엔티티 변환==//
-    public static OrderDelivery toEntity(OrderDeliveryDto orderDeliveryDto, MemberEntity memberEntity, StoreEntity storeEntity){
+    public static OrderDelivery toEntity(OrderDeliveryDto orderDeliveryDto, MemberEntity memberEntity, StoreEntity storeEntity) {
         return new OrderDelivery(
                 orderDeliveryDto.getId(),
                 memberEntity,

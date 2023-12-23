@@ -1,5 +1,7 @@
 package com.delivery.domain.store.controller;
 
+import com.delivery.domain.menu.dto.MenuDto;
+import com.delivery.domain.menu.entity.MenuEntity;
 import com.delivery.domain.store.dto.StoreDto;
 import com.delivery.domain.store.entity.StoreEntity;
 import com.delivery.domain.store.repository.StoreRepository;
@@ -19,7 +21,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class StoreController {
 
-
+    private final MenuDto menuDto;
+    private final MenuEntity menuEntity;
     private final StoreRepository storeRepository;
 
     @GetMapping("/new")
@@ -28,13 +31,11 @@ public class StoreController {
     @PostMapping("/create")
 
     public String create(@ModelAttribute StoreDto form){
-        System.out.println(form);
 
-        log.info("ERR : " + form.toString());
-        StoreEntity store = form.toEntity();
-        log.info("ERR : " + store.toString());
+        StoreEntity store = form.toCreate();
+
         StoreEntity saved = storeRepository.save(store);
-        log.info("ERR : "+saved.toString());
+
 
 
         return "redirect:/store/"+saved.getId();

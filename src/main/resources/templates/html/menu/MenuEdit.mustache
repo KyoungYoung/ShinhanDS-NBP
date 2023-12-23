@@ -198,7 +198,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">가격</label>
-                <input type="text" class="form-control" name="price" value="{{price}}">
+                <input type="text" class="form-control" name="menu_price" value="{{price}}">
             </div>
             <div class="mb-3">
                 <label class="form-label">점수</label>
@@ -209,8 +209,8 @@
                 <textarea name="content" id="" cols="30" rows="10" class="form-control">{{content}}</textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">등록</button>
-            <a href="/menu/{{id}}" class="btn btn-primary">취소</a>
+            <button type="submit" id="btn_submit">등록</button>
+            <a href="/menu/{{id}}" id="btn_cancel">취소</a>
         </form>
     {{/menu}}
   </section>

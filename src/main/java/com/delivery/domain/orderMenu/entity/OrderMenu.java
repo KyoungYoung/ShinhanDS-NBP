@@ -53,7 +53,7 @@ public class OrderMenu {
                 null,
                 orderDelivery,
                 menuEntity,
-                menuEntity.getPrice(),
+                menuEntity.getMenu_price(),
                 count
         );
     }

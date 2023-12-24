@@ -2,7 +2,6 @@ package com.delivery.domain.orderMenu.entity;
 
 import com.delivery.domain.menu.entity.MenuEntity;
 import com.delivery.domain.orderDelivery.entiy.OrderDelivery;
-import com.delivery.domain.orderMenu.dto.OrderMenuDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,9 +31,9 @@ public class OrderMenu {
     @JoinColumn(name = "order_delivery_id")
     private OrderDelivery orderDelivery;
     //메뉴 아이디///
-    @ManyToOne
-    @JoinColumn(name = "menu_id")
-    private MenuEntity menuEntity;
+    // @ManyToOne
+    // @JoinColumn(name = "menu_id")
+    // private MenuEntity menuEntity;
 
     @Column(nullable = false)
     private int payment;
@@ -43,20 +42,16 @@ public class OrderMenu {
     private int totalQuantity;
 
     //== 가격 계산==//
-    public int calculationPrice(){
+    public int calculationPrice() {
         return getPayment() * getTotalQuantity();
     }
 
-
-    public static OrderMenu create(OrderDelivery orderDelivery, MenuEntity menuEntity, int count){
-        return new OrderMenu(
-                null,
-                orderDelivery,
-                menuEntity,
-                menuEntity.getMenu_price(),
-                count
-        );
-    }
-
-
+//    public static OrderMenu create(OrderDelivery orderDelivery, MenuEntity menuEntity, int count) {
+//        return new OrderMenu(
+//                orderDelivery,
+//                menuEntity,
+//                menuEntity.getMenu_price(),
+//                count
+//        );
+//    }
 }

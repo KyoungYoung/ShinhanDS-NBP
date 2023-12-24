@@ -19,6 +19,7 @@ public class OwnerController {
     // 생성자 주입
     private final OwnerService ownerService;
 
+
     // 회원가입 페이지 출력 요청
     @GetMapping("/owner/save") // 메인페이지에서 로그인한다고 href 건거 (링크 건건 거의 get)
     public String saveForm() {
@@ -54,6 +55,7 @@ public class OwnerController {
             return "html/owner/login";
         }
 
+        session.setAttribute("ownerId", loginResult.getId());
         session.setAttribute("loginEmail", loginResult.getOwnerEmail());
         session.setAttribute("loginName", loginResult.getOwnerName());
         // 직전 페이지의 정보를 들고 와야됨

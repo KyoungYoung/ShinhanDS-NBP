@@ -1,10 +1,8 @@
 package com.delivery.domain.menu.entity;
 
 import com.delivery.domain.menu.dto.MenuDto;
-import com.delivery.domain.store.dto.StoreDto;
 import com.delivery.domain.store.entity.StoreEntity;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 
@@ -35,8 +33,6 @@ public class MenuEntity {
     private String popular;
     @Column
     private String photo;
-
-
 
     public MenuEntity toCreate(MenuDto menuDto){
         return new MenuEntity(id, store_id, name, menu_price, content, popular, photo);

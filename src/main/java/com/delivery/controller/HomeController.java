@@ -12,17 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @Slf4j
 public class HomeController {
-    @GetMapping(value = "/customer")
-    public String customerHome(){
-        log.info("customerHome");
-        return "html/customer/customer";
-    }
 
     @GetMapping(value = "")
     public String ownerHome(Model model){
         log.info("ownerHome");
-        return "html/owner/owner";
+        return "html/owner/owner1";
     }
 
-
-    }
+}

@@ -25,9 +25,6 @@ public class MenuDto {
         return new MenuEntity(id, store_id, name, menu_price, content, popular, photo);
     }
 
-
-
-
 }
 
 
